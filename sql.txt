@@ -1,0 +1,51 @@
+CREATE TABLE area
+(
+  areaId INT NOT NULL,
+  areaName INT NOT NULL,
+  PRIMARY KEY (areaId)
+);
+
+CREATE TABLE city
+(
+  cityName INT NOT NULL,
+  areaId INT NOT NULL,
+  PRIMARY KEY (cityName),
+  FOREIGN KEY (areaId) REFERENCES area(areaId)
+);
+
+CREATE TABLE agent
+(
+  agentID INT NOT NULL,
+  agentName INT NOT NULL,
+  Rating INT NOT NULL,
+  HierYear INT NOT NULL,
+  Slary INT NOT NULL,
+  areaId INT NOT NULL,
+  bossID_agentID INT NOT NULL,
+  PRIMARY KEY (agentID),
+  FOREIGN KEY (areaId) REFERENCES area(areaId),
+  FOREIGN KEY (bossID_agentID) REFERENCES agent(agentID)
+);
+
+CREATE TABLE client
+(
+  clientID INT NOT NULL,
+  clientName INT NOT NULL,
+  phoneNr INT NOT NULL,
+  adress INT NOT NULL,
+  cityName INT NOT NULL,
+  agentID INT NOT NULL,
+  PRIMARY KEY (clientID),
+  FOREIGN KEY (cityName) REFERENCES city(cityName),
+  FOREIGN KEY (agentID) REFERENCES agent(agentID)
+);
+
+CREATE TABLE schedule
+(
+  meetingTime INT NOT NULL,
+  agentID INT NOT NULL,
+  clientID INT NOT NULL,
+  PRIMARY KEY (meetingTime, agentID, clientID),
+  FOREIGN KEY (agentID) REFERENCES agent(agentID),
+  FOREIGN KEY (clientID) REFERENCES client(clientID)
+);
