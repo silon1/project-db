@@ -8,11 +8,11 @@ from copy import deepcopy as dcp
 dep_id_range = [0, 1001+1]
 wing_id_range = [0, 399+1]
 
-room_type = ['show']*10 + ['services']*2 + ['workshow'] + ['administration']
-base_rooms = ['lobby', 'services', 'show', 'show', 'show', 'show']
+room_type = [1]*10 + [2]*2 + [4] + [5]
+base_rooms = [3, 2, 1, 1, 1, 1]
 
 file = 'rooms.csv'
-fields = ['room_id', 'room_type', 'wing_id', 'building_id']
+fields = ['room_id', 'room_type_id', 'wing_id', 'building_id']
 
 names = set()
 
