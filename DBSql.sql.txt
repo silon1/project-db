@@ -12,7 +12,7 @@ CREATE TABLE Room
   room_type ENUM ('show', 'services', 'lobby', 'workshow', 'administration')
   WingId INT NOT NULL,
   building_id INT NOT NULL,
-  PRIMARY KEY (room_id, building_id),
+  PRIMARY KEY (room_id),
   FOREIGN KEY (building_id) REFERENCES building(building_id)
 );
 
@@ -20,5 +20,7 @@ CREATE TABLE Ancillary_equipment
 (
   equipment_name VARCHAR(20) NOT NULL,
   amount INT NOT NULL,
+  building_id,
   PRIMARY KEY (equipment_name)
 );
+
