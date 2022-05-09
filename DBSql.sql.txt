@@ -13,8 +13,8 @@ CREATE TABLE Room
   wing_id INT NOT NULL,
   building_id INT NOT NULL,
   PRIMARY KEY (room_id),
-  FOREIGN KEY (building_id) REFERENCES Building(building_id)
-  FOREIGN KEY (room_type_id) REFERENCES Room_type(room_type_id)
+  FOREIGN KEY (building_id) REFERENCES Building(building_id),
+  FOREIGN KEY (room_type_id) REFERENCES Room_type(room_type_id),
   FOREIGN KEY (wing_id) REFERENCES Wing(wing_id)
 );
 
@@ -23,14 +23,14 @@ CREATE TABLE Equipment
   equipment_name VARCHAR(20) NOT NULL,
   amount INT NOT NULL,
   building_id INT NOT NULL,
-  PRIMARY KEY (equipment_name)
+  PRIMARY KEY (equipment_name),
   FOREIGN KEY (building_id) REFERENCES Building(building_id)
 );
 
 CREATE TABLE Room_type
 (
   room_type_id INT NOT NULL,
-  name VARCHAR(20) NOT NULL
+  name VARCHAR(20) NOT NULL,
   PRIMARY KEY (room_type_id)
 );
 
