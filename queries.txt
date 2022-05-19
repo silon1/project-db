@@ -1,0 +1,27 @@
+# כל מה שצריך להזמין
+SELECT e.equipment_name e.min_amount - e.amount
+FROM Equipment e
+WHERE e.amount < e.min_amount
+
+# 
+SELECT b.building_id
+FROM Building b
+WHERE ESIXT(SELECT *
+			FROM Room r
+			WHERE r.department_id = 20
+				  and r.room_type_id = 5
+				  and r.building_id = b.building_id)
+
+SELECT b.building_id
+FROM Building b
+WHERE ESIXT(SELECT *
+			FROM Room r
+			WHERE r.room_type_id = 1
+				  and r.building_id = b.building_id)
+INTERSECT
+SELECT b.building_id
+FROM Building b
+WHERE NOT ESIXT(SELECT *
+				FROM Room r
+				WHERE r.room_type_id = 5
+					  and r.building_id = b.building_id)
