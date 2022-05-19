@@ -7,7 +7,7 @@ dep_id_range = [0, 1001+1]
 building_id_range = [1, 20001]
 
 file = 'buildings.csv'
-fields = ['building_id', 'building_name', 'department_id']
+fields = ['building_id', 'building_name', 'wing_id']
 rows = []
 
 names = set()
