@@ -5,8 +5,7 @@ import multiprocessing
 from time import time as t
 from copy import deepcopy as dcp
 
-dep_id_range = [0, 1001+1]
-department_id_range = [0, 399+1]
+department_id_range = [0, 1001+1]
 
 room_type = [1]*10 + [2]*2 + [4] + [5]
 base_rooms = [3, 2, 1, 1, 1, 1]

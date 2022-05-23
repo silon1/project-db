@@ -3,7 +3,7 @@ from random import randint as rnd
 from faker import Faker
 from time import time as t
 
-dep_id_range = [0, 1001+1]
+wing_id_range = [0, 399+1]
 building_id_range = [1, 20001]
 
 file = 'buildings.csv'
@@ -20,7 +20,7 @@ if __name__ == '__main__':
         while (name := fake.name()) in names:
             pass
         names.add(name)
-        rows += [[i, name, rnd(*dep_id_range)]]
+        rows += [[i, name, rnd(*wing_id_range)]]
 
     t2 = t()
     writer(file, fields, rows)
