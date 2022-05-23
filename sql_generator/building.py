@@ -3,7 +3,7 @@ from random import randint as rnd
 from faker import Faker
 from time import time as t
 
-wing_id_range = [0, 399+1]
+wing_id_range = [0, 399]
 building_id_range = [1, 20001]
 
 file = 'buildings.csv'
