@@ -3,7 +3,7 @@ SELECT e.equipment_name e.min_amount - e.amount
 FROM Equipment e
 WHERE e.amount < e.min_amount
 
-# כל הבנינים שיש בהם חדר מנהלה והשייכים למחלקת פילוסופייה 1970
+# כל הבנינים שיש בהם חדר מנהלה וחדר השייך למחלקת פילוסופייה 1970
 SELECT b.building_id
 FROM Building b
 WHERE ESIXT(SELECT *
