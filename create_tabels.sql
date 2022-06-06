@@ -1,7 +1,8 @@
 CREATE TABLE Buildings
 (
   building_id INT NOT NULL,
-  building_name VARCHAR(40) NOT NULL,
+  building_first_name VARCHAR(20) NOT NULL,
+  building_last_name VARCHAR(20) NOT NULL,
   wing_id INT NOT NULL,
   PRIMARY KEY (building_id),
   FOREIGN KEY (wing_id) REFERENCES MKLEMFNE.WING(wingid)

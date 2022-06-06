@@ -1,9 +1,8 @@
-# virtual table number of rooms per wing
+# virtual table rooms by wing
 
 create view ROOM_BY_WING as 
-SELECT w.wingid, count(r.room_id) c
+SELECT r.room_id, w.wingid
 FROM MKLEMFNE.WING w
 INNER JOIN BUILDINGS b on b.wing_id = w.wingid
 INNER JOIN ROOMS r on r.building_id = b.building_id
-group by w.wingid
-order by w.wingid;
+order by r.room_id;
