@@ -1,4 +1,3 @@
-
 # virtual table number of rooms per wing
 
 create view ROOM_BY_WING as 
