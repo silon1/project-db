@@ -1,4 +1,4 @@
-SELECT b.wing_id, b.building_last_name, COUNT(*)
-FROM Building b
-GROUP BY b.wing_id
-GROUP BY b.building_last_name
+SELECT b.wing_id, b.building_last_name, COUNT(*) c
+FROM Buildings b
+GROUP BY b.wing_id, b.building_last_name
+ORDER BY b.wing_id, c DESC

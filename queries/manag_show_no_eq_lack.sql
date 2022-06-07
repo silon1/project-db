@@ -1,28 +1,28 @@
-#כל הבניינים שיש להם לפחות 7 חדרי תצוגה וחדר מנהלה אחד 
-#וכן אלה שיש להם את כל הציוד 
+# כל הבניינים שיש להם יותר 7 חדרי תצוגה
+# חדר מנהלה אחד ולא חסק בהם ציוד
  
-select b.building_id 
-from Buildings b
-where EXISTS (SELECT *
-             From rooms r
-             where r.room_type_id = 5)
+SELECT b.building_id 
+FROM Buildings b
+WHERE EXISTS (SELECT *
+              FROM rooms r
+              WHERE r.room_type_id = 5)
              
 INTERSECT
 
-select b.building_id 
-from Buildings b
-where b.building_id in ( 
-        select x.building_id
-        from ( select r.building_id, count(r.room_id) c
-               from rooms r
-               where r.room_type_id = 1
-               group by r.building_id ) x
-        where x.c > 7)
+SELECT b.building_id 
+FROM Buildings b
+WHERE b.building_id IN ( 
+        SELECT x.building_id
+        FROM (SELECT r.building_id, COUNT(r.room_id) c
+              FROM rooms r
+              WHERE r.room_type_id = 1
+              GROUP BY r.building_id ) x
+        WHERE x.c > 7)
 
 INTERSECT
 
-Select b.building_id
-from buildings b
-where b.building_id not in (SELECT e.building_id 
-                          from Equipments e
-                          WHERE e.amount < e.min_amount)
+SELECT b.building_id
+FROM buildings b
+WHERE b.building_id NOT IN (SELECT e.building_id 
+                            FROM Equipments e
+                            WHERE e.amount < e.min_amount)
