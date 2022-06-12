@@ -18,7 +18,7 @@ names = set()
 def generate_rooms(i):
     rooms = dcp(base_rooms)
     rooms += [choice(room_type) for _ in range(rnd(2, 5))]
-    return [[f'{i}{j+1}', room, choice(range(*department_id_range)), i] for j, room in enumerate(rooms)]
+    return [[f'{i}{str(j+1).zfill(3)}', room, choice(range(*department_id_range)), i] for j, room in enumerate(rooms)]
 
 if __name__ == '__main__':
     t1 = t()
