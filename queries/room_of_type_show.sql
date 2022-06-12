@@ -1,3 +1,3 @@
-select r.room_id
-from rooms r inner join buildings b on r.building_id = b.building_id
-where r.room_type_id = &<name="type_id" type="integer" required="true">
+SELECT r.room_id
+FROM ROOM_BY_WING r
+WHERE r.room_type_id = &<name="type_id" type="integer" required="true"> ANF r.wing_id = &<name="wing_id" type="integer" required="true">
