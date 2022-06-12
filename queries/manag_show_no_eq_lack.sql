@@ -1,8 +1,8 @@
 SELECT b.building_id 
 FROM Buildings b
 WHERE EXISTS (SELECT *
-              FROM Room_by_type r
-              WHERE r.room_type_id = 5)
+              FROM Rooms r
+              WHERE r.room_type_id = 2)
              
 INTERSECT
 
@@ -11,7 +11,7 @@ FROM Buildings b
 WHERE b.building_id IN ( 
         SELECT x.building_id
         FROM (SELECT r.building_id, COUNT(r.room_id) c
-              FROM Room_by_type r
+              FROM Rooms r
               WHERE r.room_type_id = 1
               GROUP BY r.building_id ) x
         WHERE x.c > 7)
