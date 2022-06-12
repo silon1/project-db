@@ -1,6 +1,3 @@
-# כל הבניינים שיש להם יותר 7 חדרי תצוגה
-# חדר מנהלה אחד ולא חסק בהם ציוד
- 
 SELECT b.building_id 
 FROM Buildings b
 WHERE EXISTS (SELECT *
@@ -23,6 +20,5 @@ INTERSECT
 
 SELECT b.building_id
 FROM buildings b
-WHERE b.building_id NOT IN (SELECT e.building_id 
-                            FROM Equipments e
-                            WHERE e.amount < e.min_amount)
+WHERE b.building_id NOT IN (SELECT t.building_id
+                            FROM TO_ORDER t)
