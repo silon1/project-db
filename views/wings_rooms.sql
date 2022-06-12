@@ -1,5 +1,3 @@
-# virtual table rooms by wing
-
 create view ROOM_BY_WING as 
 SELECT r.room_id, w.wingid
 FROM MKLEMFNE.WING w
